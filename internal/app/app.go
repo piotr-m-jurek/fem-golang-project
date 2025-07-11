@@ -5,16 +5,27 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/piotr-m-jurek/fem-project/internal/api"
 )
 
 type Application struct {
-	Logger *log.Logger
+	Logger         *log.Logger
+	WorkoutHandler *api.WorkoutHandler
 }
 
 func NewApplication() (*Application, error) {
 	logger := log.New(os.Stdout, "", log.Ldate|log.Ltime)
 
-	app := &Application{Logger: logger}
+	// our stores will go here
+
+	// our handlers will go here
+	workoutHandler := api.NewWorkoutHandler()
+
+	app := &Application{
+		Logger:         logger,
+		WorkoutHandler: workoutHandler,
+	}
 	return app, nil
 }
 
