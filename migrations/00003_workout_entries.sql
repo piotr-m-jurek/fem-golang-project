@@ -1,6 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE TABLE IF NOT EXISTS workouts (
+CREATE TABLE IF NOT EXISTS workout_entries (
     id BIGSERIAL PRIMARY KEY,
     workout_id BIGINT NOT NULL REFERENCES workouts(id) ON DELETE CASCADE,
     exercise_name VARCHAR(255) NOT NULL,
@@ -21,5 +21,5 @@ CREATE TABLE IF NOT EXISTS workouts (
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE workouts;
+DROP TABLE workout_entries;
 -- +goose StatementEnd
